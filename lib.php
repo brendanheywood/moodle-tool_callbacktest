@@ -7,7 +7,7 @@ function tool_callbacktest_before_header() {
 
 function tool_callbacktest_add_htmlattributes() {
     // eg add some extra metadata namespaces which are used elsewhere.
-    return ' xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"';
+    return ' xmlns:og="http://ogp.me/ns#"';
 }
 
 function tool_callbacktest_before_standard_html_head() {
