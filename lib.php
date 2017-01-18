@@ -1,13 +1,19 @@
 <?php
 
-function tool_callbacktest_before_header() {
+function tool_callbacktest_before_http_headers() {
     // eg an admin tool could manage CSP headers
     header("Foo: Bar");
 }
 
 function tool_callbacktest_add_htmlattributes() {
     // eg add some extra metadata namespaces which are used elsewhere.
-    return ' xmlns:og="http://ogp.me/ns#"';
+    return array(
+        'xmlns:og' => 'http://ogp.me/ns#', # this should be in the page
+        'escape'   => "some bad chars ' = & < > '", # this should be in the page
+        'lang'     => 'wrong', # don't allow this to be added
+        'dir'      => 'up',    # don't allow this to be added
+        'xml:lang' => 'wrong', # don't allow this to be added
+    );
 }
 
 function tool_callbacktest_before_standard_html_head() {
